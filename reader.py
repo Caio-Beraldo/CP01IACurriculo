@@ -1,8 +1,8 @@
 from pypdf import PdfReader
 
-def extrair_texto_pdf(caminho_arquivo):
+def extrair_pdf(arquivo):
     try:
-        leitor = PdfReader(caminho_arquivo)
+        leitor = PdfReader(arquivo)
         texto_acumulado = ""
         for pagina in leitor.pages:
             texto_pagina = pagina.extract_text()
@@ -11,5 +11,5 @@ def extrair_texto_pdf(caminho_arquivo):
         return texto_acumulado
         
     except Exception as e:
-        print(f"Erro ao ler o arquivo PDF {caminho_arquivo}: {e}")
+        print(f"Erro ao ler o arquivo PDF {arquivo}: {e}")
         return ""
