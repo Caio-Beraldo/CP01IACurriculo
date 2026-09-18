@@ -1,8 +1,6 @@
 from openai import OpenAI
 
 client = OpenAI()
-
-
 def analisar_curriculo_com_llm(texto_curriculo):
 
     prompt = f"""
