@@ -1,7 +1,7 @@
 import re
 
-def aplicar_filtros_deterministicos(texto_pdf, tempo_mininimo, orcamento):
-    texto_lower = texto_pdf.lower()
+def aplicar_filtros_deterministicos(texto_curriculo, tempo_mininimo, orcamento):
+    texto_lower = texto_curriculo.lower()
     aprovado = True
     motivos_reprovacao = []
     padrao_experiencia = r'(\d+)\s*(?:anos?|ano)\s*(?:de\s*)?(?:experiência|experiencia)'
