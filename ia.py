@@ -1,8 +1,9 @@
-from openai import OpenAI
+import ollama
 from calcularTokens import calcular_tokens
-client = OpenAI()
+
 def analisar_curriculo_com_llm(texto_curriculo):
-    modelo = "gpt-5.6-luna"
+   
+    modelo = "ollama3:1b"
     prompt = f"""
 
 Você é um especialista em recrutamento de desenvolvedores.
@@ -23,13 +24,18 @@ CURRÍCULO:
 """
     tokens_entrada = calcular_tokens(prompt, modelo)
 
-    resposta = client.responses.create(
-        model="gpt-5.6-luna",
-        input=prompt
+    resposta = ollama.chat(
+        model="gemma3:1b",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
 
     
-    tokens_saida = calcular_tokens(resposta, modelo)
+    tokens_saida = calcular_tokens(resposta["message"]["content"], modelo)
     total_tokens = tokens_entrada + tokens_saida
 
     relatorio = {
@@ -39,6 +45,6 @@ CURRÍCULO:
         "tokens_totais": total_tokens
     }
     
-    return resposta.output_text, relatorio
+    return resposta["message"]["content"], relatorio
 
 

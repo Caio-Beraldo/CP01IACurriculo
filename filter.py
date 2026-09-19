@@ -9,7 +9,7 @@ def aplicar_filtros_deterministicos(texto_curriculo, tempo_mininimo, orcamento):
     anos_experiencia = 0
     if experiencias:
         for ano in experiencias:
-            anos_experiencia = max(int(ano))
+            anos_experiencia = int(ano)
     if anos_experiencia < tempo_mininimo:
         aprovado = False
         motivos_reprovacao.append("Experiência Insuficiente!")

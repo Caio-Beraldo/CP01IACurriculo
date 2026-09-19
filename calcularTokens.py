@@ -1,8 +1,8 @@
 import tiktoken
-def calcular_tokens(texto, modelo="gpt-4o-mini"):
+def calcular_tokens(texto, modelo="ollama3:1b"):
     
     try:
-        codificador = tiktoken.encoding_for_model(modelo)
+        codificador = tiktoken.get_encoding("cl100k_base")
         tokens_lista = codificador.encode(texto)
 
         return len(tokens_lista)

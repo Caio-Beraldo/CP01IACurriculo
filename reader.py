@@ -13,8 +13,3 @@ def extrair_pdf(arquivo):
     except Exception as e:
         print(f"Erro ao ler o arquivo PDF {arquivo}: {e}")
         return ""
-
-a = "oi eu gosto de pão"
-b = "sabor"
-total = a + b
-print(total)
